@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Evc-Plus</title>
+</head>
+<body>
+    <script>
+
+
+
+const menue ="1.Balance\n2.Deposit\n3.Withdraw\n4.Exit";
+const menue2 = "1.Go Back to Menue\n2.Exit";
+const menue3 = "1.Go Back\n2.Go Back to Menue\n3.Exit";
+const menue4 = "1.Go Back\n2.Exit";
+const myPin= 1234;
+let totalBalances = 200;
+
+
+
+
+
+pin();
+
+function all(){
+     menues();
+
+}
+
+function menues(){
+    const dooro = Number(prompt(`Dooro Numberka aad rabto:- \n\n${menue}`));
+    switch(dooro){
+        case 1:
+            balance(totalBalances);
+            break;
+        case 2:
+                deposit(totalBalances);
+                break;
+        case 3:
+                withdraw(totalBalances);
+                break;
+        default:
+                alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)  
+    }
+}
+
+function pin(){
+    const check = Number(prompt(`Ku soo Dhawoow Adeega Evc-Plus\n\nSoo Geli Pin-Kaaga:-`));
+    if (check === myPin){
+       all();
+    }else if (check !== myPin){
+       const Menue2 = Number(prompt(`Pin-ka aad Gelisay waa khalad\n\nDib ugu Noqo Fadlan...\n\n\n${menue4}`));
+        switch(Menue2){
+            case 1:
+                pin();
+                break;
+                default:
+                    alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)    
+        }
+    }
+
+
+}
+
+function balance(locBalance){
+    
+    Menue2 = Number(prompt(`Hadhaagaagu waa ${locBalance}$\n\n${menue2}`));
+        switch(Menue2){
+            case 1:
+                all();
+                break;
+                default:
+                    alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)    
+        }
+}
+
+function withdraw(locBalance){
+    kalabax=Number(prompt(`Meeqa ayaa rabtaa inaa kala baxdid.\n\nGeli Lacagta:-`));
+    if (kalabax<=locBalance){
+    locBalance = locBalance - kalabax;
+    totalBalances = locBalance;
+    Menue2 = Number(prompt(`Waxaad kala baxday ${kalabax}$\nHadhaagaaga Hada waa ${totalBalances}$\n\n${menue2}`));
+    switch(Menue2){
+        case 1:
+            all();
+            break;
+            default:
+                alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)    
+    }
+
+    }else {
+        Menue2 = Number(prompt(`Hadhaagaa kugu ma filna\nLacagta aad gelisay ayaa ka badan\nKunoqo Fadlan...\n\n${menue3}`));
+        switch(Menue2){
+            case 1:
+                withdraw(totalBalances);
+                break;
+            case 2:
+                all();
+            default:
+                alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)    
+        }
+    }
+}
+
+
+function deposit(locBalance){
+    kushubo = Number(prompt(`Imisa Lacag ah ayaa \nku shubanaysaa\n\nGeli Lacagta:-`));
+    locBalance = locBalance + kushubo;
+    totalBalances = locBalance;
+    mneue2 = Number(prompt(`Waxaad ku shubatay ${kushubo}$\nHadhaagaaga Hada waa ${totalBalances}$\n\n${menue2}`));
+    switch(Menue2){
+        case 1:
+            all();
+            break;
+            default:
+                alert(`Waad Ka baxday\nNabadeey Macsalaama\nLa kulan danbe insha Allah! ....`)    
+    }
+}
+
+
+    </script>
+</body>
+</html>
